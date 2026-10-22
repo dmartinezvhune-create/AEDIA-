@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>Onboarding closers AEDIA</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=DM+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: sistema VOID/GOLD de Closer Search — banda de marca con logo, acta en una columna */
+:root{
+  --bg:#070707; --surface:#101010; --raise:#151515; --fg:#EDE6D6; --muted:#A39C8C; --line:#2A2620;
+  --gold:#C9A84C; --gold-soft:#C9A96E; --gold-tint:rgba(201,168,76,.10); --risk:#E08A7A; --risk-tint:rgba(224,138,122,.10);
+  --display:"Cormorant Garamond",Georgia,serif; --caps:"Cinzel",Georgia,serif; --body:"DM Sans",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;text-align:left;hyphens:none}
+.brand{border-bottom:1px solid var(--line);background:#050505}
+.brand-in{max-width:820px;margin:0 auto;padding-block:22px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{width:52px;height:58px;flex:none}
+.logo .name{font-family:var(--caps);font-size:24px;letter-spacing:.14em;line-height:1}
+.logo .name b{font-weight:600;color:var(--fg)}
+.logo .name span{color:var(--gold)}
+.logo .tag{font-family:var(--display);font-style:italic;color:var(--muted);font-size:15px;margin-top:5px}
+.brand .conf{font-family:var(--caps);font-size:11px;letter-spacing:.18em;color:var(--gold-soft);border:1px solid var(--line);padding:5px 10px;border-radius:2px}
+.wrap{max-width:820px;margin:0 auto;padding-block:36px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:42px}
+h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(32px,7vw,46px)}
+h2{font-size:28px;color:var(--fg);display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+h3{font-family:var(--caps);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 8px;font-weight:600}
+p{margin:0}
+b{color:#F6EFDF}
+.eyebrow{font-family:var(--caps);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.meta{color:var(--muted)}
+header{display:flex;flex-direction:column;gap:10px}
+section{display:flex;flex-direction:column;gap:16px}
+ul,ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;min-width:0}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--caps);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;background:var(--raise)}
+tr:last-child td{border-bottom:0}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--gold-soft)}
+.stage{font-family:var(--caps);font-size:12px;letter-spacing:.06em;color:var(--gold);white-space:nowrap}
+.risk{background:var(--risk-tint);border:1px solid rgba(224,138,122,.35);border-left:3px solid var(--risk);padding:14px 16px;border-radius:3px;font-size:15.5px;display:flex;flex-direction:column;gap:6px}
+.risk b{color:var(--risk)}
+.note{background:var(--gold-tint);border-left:3px solid var(--gold);padding:12px 16px;border-radius:3px;font-size:15px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--caps);font-size:11.5px;letter-spacing:.06em}
+.flow span{background:var(--surface);border:1px solid var(--gold);color:var(--gold-soft);border-radius:2px;padding:5px 9px}
+.flow i{font-style:normal;color:var(--muted)}
+.tramo{display:grid;grid-template-columns:110px 1fr;gap:4px 18px;padding:15px 0;border-top:1px solid var(--line)}
+.tramo .t{font-family:var(--caps);font-size:12px;letter-spacing:.04em;color:var(--gold);padding-top:3px;font-variant-numeric:tabular-nums}
+.tramo div{min-width:0;display:flex;flex-direction:column;gap:6px}
+.who{font-weight:600;color:var(--gold-soft)}
+footer{border-top:1px solid var(--line)}
+.foot{max-width:820px;margin:0 auto;padding-block:20px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.foot span:first-child{font-family:var(--caps);letter-spacing:.14em;color:var(--gold-soft)}
+@media (max-width:520px){.tramo{grid-template-columns:1fr}.logo .name{font-size:20px}}
+
+/* Texto justificado sin estirar: sin guiones, espaciado contenido, última línea a la izquierda; en móvil estrecho vuelve a la izquierda para no abrir huecos */
+p,li,.note,.risk p{text-align:justify;text-justify:inter-word;text-align-last:left;hyphens:none;-webkit-hyphens:none;word-spacing:-.01em;overflow-wrap:break-word}
+.meta,.logo .tag,td,th,h1,h2,h3,.flow{text-align:left}
+@media (max-width:480px){p,li,.note,.risk p{text-align:left}}
+</style>
+</head>
+<body>
+
+<div class="brand"><div class="brand-in">
+  <div class="logo">
+    <svg viewBox="0 0 52 58" aria-hidden="true"><polygon points="26,2 49,15 49,43 26,56 3,43 3,15" fill="none" stroke="#C9A84C" stroke-width="2.4"/><polygon points="26,8 44,18.5 44,39.5 26,50 8,39.5 8,18.5" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1"/><path d="M16.5 29.5 L23.5 36.5 L36 22" fill="none" stroke="#C9A84C" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><div class="name"><b>CLOSER</b> <span>SEARCH</span></div><div class="tag">Selección de talento de cierre</div></div>
+  </div>
+  <span class="conf">Uso interno</span>
+</div></div>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Acta de reunión · Closer Search × AEDIA</div>
+  <h1>Onboarding de las closers de AEDIA</h1>
+  <p class="meta">Duración 1 h 43 min · Asistentes: Charo y Elena (closers), Abraham (AEDIA, parte técnica y CRM), Macarena (AEDIA, comercial y administración), David Martínez-Bayer (Closer Search). Reunión en castellano y catalán.</p>
+</header>
+
+<section>
+  <h2>Resumen ejecutivo</h2>
+  <p>Primera sesión de arranque de Charo y Elena como closers de AEDIA. AEDIA explica su situación: tiene muchos leads de formación bonificada (FUNDAE) en IA, pero ha perdido ventas por no poder hacer seguimiento. La clave del negocio es conseguir que la empresa envíe la <b>encomienda</b>: cuando llega, el 95 % acaba en venta. Las closers se centran en llamar, hacer seguimiento y cerrar; Macarena asume toda la parte administrativa. Abraham enseña el CRM: asignación automática por turnos, etapas, notas, scoring, mensajería y automatizaciones. Ya hay unos 270 leads cualificados en “Presentación de propuestas” repartidos entre las dos. Mañana sigue la formación con el catálogo de cursos.</p>
+
+  <div class="grid">
+    <div class="box"><h3>La oportunidad</h3><p>Media actual de unos 500 leads al mes, objetivo de 800 en 2027. Presupuesto de campañas casi duplicado. Nuevas campañas de ciberseguridad y Google en diciembre.</p></div>
+    <div class="box"><h3>El problema que se resuelve</h3><p>Hasta ahora: dos llamadas, un correo y el lead se daba por perdido. Muchos interesados no se volvieron a llamar. Ahí está la venta que se escapa.</p></div>
+    <div class="box"><h3>El reparto de tareas</h3><p>Closers: llamada, seguimiento y cierre. Macarena: créditos FUNDAE, cobro, contrato, ficha de alumno y altas. Abraham: CRM, web y campañas de correo.</p></div>
+    <div class="box"><h3>Palanca de venta</h3><p>Un empleado informado arrastra a otros de su empresa. Lo normal es que un lead acabe en varias matrículas. Esas ventas son de la closer que llevó el lead.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Datos y cifras mencionados</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Concepto</th><th>Dato</th></tr></thead>
+    <tbody>
+      <tr><td>Leads al mes</td><td class="n">≈ 500 ahora · objetivo 800 en 2027</td></tr>
+      <tr><td>Leads no válidos</td><td class="n">5–6 %</td></tr>
+      <tr><td>Coste por lead</td><td class="n">7–12 €</td></tr>
+      <tr><td>Cierre con encomienda entregada</td><td class="n">≈ 95 %</td></tr>
+      <tr><td>Cursos estándar (Microsoft, marketing, salud, transporte…)</td><td class="n">660 € · se ajustan a ≈ 420–460 € si el crédito no llega</td></tr>
+      <tr><td>Low-code</td><td class="n">≈ 800 € (sin descuento)</td></tr>
+      <tr><td>Toolkit (básico)</td><td class="n">≈ 210 €</td></tr>
+      <tr><td>Reglamento de IA (formación de cumplimiento)</td><td class="n">≈ 120 € por empleado · 15–16 h</td></tr>
+      <tr><td>Máster</td><td class="n">≈ 2.200 € · casi siempre de pago</td></tr>
+      <tr><td>Ingeniería / máster superior</td><td class="n">3.900 €</td></tr>
+      <tr><td>Leads en Presentación de propuestas</td><td class="n">≈ 273–277, repartidos al azar (≈ 90 por closer)</td></tr>
+      <tr><td>Cierre negociación</td><td class="n">27 (≈ 17 tras la limpieza)</td></tr>
+      <tr><td>Llamadas agendadas</td><td class="n">30</td></tr>
+      <tr><td>Leads de un webinar</td><td class="n">93 gratuitos</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">Cifras tal como se dijeron en la reunión; conviene confirmarlas con AEDIA antes de usarlas en la guía de ventas.</p>
+</section>
+
+<section>
+  <h2>Cómo funciona FUNDAE en la operativa de AEDIA</h2>
+  <ul>
+    <li><b>Primera llamada:</b> casi nunca se cierra. El lead suele querer intentarlo primero por FUNDAE con su empresa.</li>
+    <li><b>Encomienda:</b> la empresa la envía y Macarena consulta los créditos. Si hay crédito, la empresa está al corriente con Hacienda y Seguridad Social (no hay otra forma de saberlo).</li>
+    <li><b>Descuentos:</b> no se dice la cifra hasta saber cuántas personas y cuánto crédito hay. Se deciden con Macarena o Abraham.</li>
+    <li><b>Pago:</b> AEDIA cobra al contratar, no al terminar. Se comunica el inicio a FUNDAE con 3 días hábiles; en ese margen la empresa paga y entrega ficha de alumno (nombre, teléfono, email, DNI) y contrato de prestación de servicios. Hay flexibilidad si la empresa paga unos días más tarde.</li>
+    <li><b>Bonificación:</b> el alumno tiene que hacer la formación entre las fechas de inicio y fin, con conexiones y tareas entregadas. AEDIA avisa por correo a quien va retrasado. Solo hubo un caso sin bonificar el año pasado (no entró nunca).</li>
+    <li><b>Bonificación parcial:</b> se puede bonificar lo que cubra el crédito y pagar el resto.</li>
+    <li><b>Autónomo sin empleados:</b> no puede bonificar; tiene que pagar. Casi nunca cierra.</li>
+    <li><b>Títulos:</b> FUNDAE emite el diploma al empleado; AEDIA puede emitir su propio título verificable con blockchain.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="risk">
+    <p><b>Punto a revisar antes de la guía de ventas.</b> En la reunión se comentaron dos prácticas: que el dueño de una empresa haga el curso con el acceso de un empleado al que se le bonifica, y que en un caso de ikastolas sean los directores quienes hagan la formación bonificada a nombre de profesores. Esto puede chocar con las reglas de FUNDAE sobre quién es el participante bonificado. Recomiendo no incluirlo como argumento en la guía y que las closers no lo planteen hasta que AEDIA confirme que cumple la normativa.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Operativa del CRM</h2>
+  <div class="flow">
+    <span>Por contactar</span><i>→</i><span>Seguimiento</span><i>→</i><span>Llamada agendada</span><i>→</i><span>Presentación de propuesta</span><i>→</i><span>Cierre negociación</span><i>→</i><span>Venta cerrada</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Etapa</th><th>Qué significa y qué hacer</th></tr></thead>
+    <tbody>
+      <tr><td class="stage">Por contactar</td><td>Lead nuevo, asignado solo. Llamar; si no contesta, nota y reintento al día siguiente. Tras unos dos días sin respuesta, pasar a Seguimiento.</td></tr>
+      <tr><td class="stage">Seguimiento</td><td>Automático: WhatsApp y correo con enlace para agendar cita. A los 15 días sin contacto pasa solo a Imposible contactar.</td></tr>
+      <tr><td class="stage">Llamada agendada</td><td>Se mueve sola al agendar. Recordatorios automáticos 24 h y 1 h antes. Las citas salen en el calendario.</td></tr>
+      <tr><td class="stage">Presentación de propuesta</td><td>Lead informado, interesado y con temario y encomienda enviados. Correo automático a los 2 días; llamada hacia los 8–10 días. A los 40 días pasa a seguimiento a largo plazo.</td></tr>
+      <tr><td class="stage">Cierre negociación</td><td>Encomienda entregada o pendiente de pago.</td></tr>
+      <tr><td class="stage">Venta cerrada</td><td>Pagado.</td></tr>
+      <tr><td class="stage">Descartado / rechazado</td><td>Lead que no vale o que no quiere (por ejemplo, autónomo que no quiere pagar).</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid">
+    <div class="box"><h3>Orden del día</h3><ol>
+      <li>Por contactar, de abajo arriba (lo más antiguo primero).</li>
+      <li>Llamadas agendadas según el calendario.</li>
+      <li>Entre llamada y llamada, más Por contactar.</li>
+      <li>Si está limpio: Seguimiento.</li>
+      <li>Después: Presentación de propuestas.</li>
+    </ol></div>
+    <div class="box"><h3>Señales del CRM</h3><ul>
+      <li><b>Asignación:</b> lo que entra por la mañana va a la closer de mañana; lo de la tarde, a la de tarde. Lo hace un proceso cada hora.</li>
+      <li><b>Azul:</b> reentrada, el lead ha vuelto a pedir información.</li>
+      <li><b>Verde:</b> el lead ha escrito por WhatsApp o correo.</li>
+      <li><b>Notas:</b> registrar cada intento; se guardan con fecha.</li>
+      <li><b>Scoring:</b> de 0 a 3 según interés.</li>
+      <li><b>Lista negra:</b> para leads que repiten sin intención (cada lead cuesta dinero).</li>
+    </ul></div>
+  </div>
+
+  <div class="grid">
+    <div class="box"><h3>Cuando llega una encomienda</h3><p>Si llega por WhatsApp, reenviarla a Macarena. Si llega por correo, Macarena está en copia automática. Su respuesta y todo el historial se ven en la ficha del lead.</p></div>
+    <div class="box"><h3>Origen del lead</h3><p>Formulario web: muy cualificado. Meta e Instagram. Asistentes de IA (ChatGPT, Gemini, Claude): cualificado, ya sabe de IA. Campaña generalista: preguntar sector y herramientas para recomendar curso.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Ideas de venta que dio AEDIA</h2>
+  <ul>
+    <li>No perder un cierre por una objeción menor: AEDIA prefiere ajustar y cerrar.</li>
+    <li>Muchos leads no saben qué es FUNDAE; hay que explicarlo desde cero. Otros lo conocen como “la antigua tripartita”.</li>
+    <li>El reglamento europeo de IA obliga a formar a empleados que usan IA: argumento para formaciones de cumplimiento a grupos.</li>
+    <li>Quien ya hizo un curso del SEPE que no le sirvió suele cerrar: diferencia con la metodología práctica, tutor, tareas con feedback y acceso de por vida.</li>
+    <li>Low-code solo para quien quiere aprender de verdad. Decirle “esto no es para ti” si no va a dedicarle tiempo funciona.</li>
+    <li>Las herramientas (n8n, Make, Microsoft) las paga el alumno; casi todo se puede hacer con versiones gratuitas o de pocos euros al mes.</li>
+    <li>Final de año: las empresas descubren créditos sin gastar y quieren usarlos.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Próximos pasos</h2>
+  <ol>
+    <li><b>Mañana:</b> segunda sesión con el catálogo de formaciones y dudas del CRM.</li>
+    <li><b>Charo y Elena:</b> ver el webinar de mañana (SDD, con Álex Valtarri y Marc) para coger contexto. Abraham ya envió el enlace.</li>
+    <li><b>Charo y Elena:</b> empezar por los ≈ 90 leads cada una de Presentación de propuestas: seguimiento y cierre.</li>
+    <li><b>David:</b> terminar la guía de ventas con los enlaces de pago y el informe.</li>
+    <li><b>David:</b> preparar un vocabulario de términos de IA (SDD, n8n, Make, low-code…).</li>
+    <li><b>David:</b> aclarar con AEDIA el punto de bonificaciones marcado arriba.</li>
+    <li><b>Abraham:</b> campañas de correo bajo petición (por ejemplo Black Friday) y cambios de CRM. Ya cambió el nombre de Elena en el CRM.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Transcripción ordenada</h2>
+  <p class="note">La transcripción original está bien captada pero mezcla castellano y catalán y tiene frases cortadas. Aquí va limpia y resumida en castellano, por tramos de tiempo, con quién habla cuando se identifica.</p>
+
+  <div>
+    <div class="tramo"><span class="t">00:08–01:26</span><div><p>Saludos. <span class="who">Charo</span> se presenta: llevará la parte comercial y es su primera experiencia como closer. <span class="who">Elena</span> se presenta: tiene larga experiencia comercial, trabaja como closer y conoce bien la formación FUNDAE.</p></div></div>
+
+    <div class="tramo"><span class="t">01:29–02:34</span><div><p><span class="who">Abraham</span> se presenta: lleva la parte técnica de las formaciones, coordina tutores y ha organizado con David el arranque. Para cualquier cosa de la web o del CRM, que le escriban sin problema.</p></div></div>
+
+    <div class="tramo"><span class="t">02:40–04:32</span><div><p><span class="who">Macarena</span> (gestión y llamadas) da la bienvenida. Dice que a mucha gente hay que explicarle FUNDAE desde cero. Ofrece a Charo una sesión aparte para repasarlo. Charo comenta que se ha estado informando y le parece sencillo.</p></div></div>
+
+    <div class="tramo"><span class="t">04:49–06:09</span><div><p>AEDIA presenta el contexto: son ingenieros de IA, han crecido mucho y para 2027 casi duplican la inversión en campañas, que lleva Lead&amp;Go. Solo un 5–6 % de leads no valen. Preparan una campaña de ciberseguridad y dos de Google para diciembre.</p></div></div>
+
+    <div class="tramo"><span class="t">06:09–08:50</span><div><p>Reconocen su fallo: no tenían capacidad para hacer seguimiento. Hacían dos llamadas, un correo o WhatsApp y, si no contestaba, se perdía. Hubo gente muy interesada a la que no se volvió a llamar. Aun así cerraron bastante. Por eso confían en la fuerza de venta de las closers.</p></div></div>
+
+    <div class="tramo"><span class="t">08:50–11:31</span><div><p><span class="who">David</span> explica que trabaja con Abraham en la documentación habitual. Falta información para cerrar la guía de ventas, que llevará todos los enlaces de pago. Lo pendiente es entender bien FUNDAE y qué se ofrece al prospecto. Las guías se ajustan sobre la marcha: los cambios suelen estar en 24 horas. Se bromea con lo sencillo que es el CRM.</p></div></div>
+
+    <div class="tramo"><span class="t">11:31–14:39</span><div><p>AEDIA destaca su plataforma de estudio como argumento de venta y que todo su software es propio. El 95 % de lo que entra es FUNDAE. Si la empresa entrega la encomienda firmada, el 95 % se cierra, aunque tarde semanas. Ejemplo: una fundación del sector salud cerrada hoy, tras 20 días. Si una empresa pequeña tiene 420 € de crédito y el curso cuesta 660 €, se lo dejan en 420 para no perder la venta.</p></div></div>
+
+    <div class="tramo"><span class="t">14:44–16:35</span><div><p>Flujo de la encomienda: la closer la recibe, la pasa a administración, Macarena consulta créditos en FUNDAE y envía un correo con la closer en copia. Los cursos de 660 € (la mayoría, como Microsoft) se pueden dejar en unos 460 €. Cuando llega la respuesta de FUNDAE pasa a cierre y la closer lo ve en su ficha.</p></div></div>
+
+    <div class="tramo"><span class="t">16:35–19:34</span><div><p>Lo bueno: un lead suele traer varias ventas. Recursos Humanos descubre la formación y la extiende a más empleados; esas ventas son de la closer. Ejemplos: una empresa con 26 alumnos y 36 cierres el mes pasado. Reglamento de IA: las empresas deben formar a quien use IA; AEDIA tiene una formación de cumplimiento a unos 120 € por empleado. Un cliente con 12 empleados cerró 10 de golpe.</p></div></div>
+
+    <div class="tramo"><span class="t">19:34–22:48</span><div><p>Presupuestos a medida para grupos grandes: se preparan con Macarena y Abraham. Ejemplo de llamada: preguntar cuántas personas usan IA, consultar créditos y no concretar el descuento hasta tener el número exacto. Al principio cuesta unos días que la rueda gire. Final de año es buen momento porque las empresas quieren gastar crédito.</p></div></div>
+
+    <div class="tramo"><span class="t">22:48–25:13</span><div><p>Ahora el lead entra despistado por la actualidad. El precio frena a quien no tiene FUNDAE. Aunque FUNDAE permite pagar al final, AEDIA cobra al contratar. Se comunica el inicio con 3 días hábiles; en ese margen se paga y se completa ficha de alumno y contrato. Hay flexibilidad con fechas de pago y nunca ha fallado un cobro.</p></div></div>
+
+    <div class="tramo"><span class="t">25:19–30:01</span><div><p><span class="who">Elena</span> pregunta cómo saber si una empresa tiene deudas con Hacienda o Seguridad Social. Respuesta: no se puede saber; si la consulta de créditos funciona, está al corriente. Para bonificar, el alumno tiene que hacer la formación en plazo, con conexiones y tareas. AEDIA avisa a quien va retrasado. Solo un caso el año pasado no se bonificó porque no entró nunca.</p></div></div>
+
+    <div class="tramo"><span class="t">30:10–33:26</span><div><p>Bonificación parcial: se bonifica lo que cubre el crédito y el resto se paga. El autónomo sin empleados no puede bonificar y casi nunca cierra. Se comenta que, con empleados, el dueño podría hacer el curso con el acceso de un empleado. AEDIA puede emitir su propio título con blockchain.</p></div></div>
+
+    <div class="tramo"><span class="t">33:26–38:43</span><div><p>Mucha gente no quiere el título, quiere aprender. Caso de las ikastolas del País Vasco: se va a cerrar una formación bonificada y los directores accederán a ella. Mensaje de AEDIA: si hay alguien a tiro, cerrarlo; ellos se encargan de que encaje. Tienen la plataforma, los contenidos y los agentes de IA; lo que necesitan es cierre.</p></div></div>
+
+    <div class="tramo"><span class="t">39:08–43:17</span><div><p><span class="who">Charo</span> pregunta qué hace la closer a nivel operativo. Respuesta: cerrar y enviar el contrato de encomienda. Si llega por WhatsApp, se reenvía a Macarena; por correo, Macarena está en copia. El CRM guarda todo el historial. Macarena se encarga del cobro, FUNDAE, contrato, ficha de alumno y accesos. La ficha pide nombre, apellidos, teléfono, email y DNI. La clave: muchas llamadas y muchas encomiendas, sin perder tiempo en administración.</p></div></div>
+
+    <div class="tramo"><span class="t">43:17–47:28</span><div><p>Están abiertos a mejoras. Media actual de unos 500 leads al mes; objetivo de 800 en 2027 y cada vez más cualificados. Hay un embudo que avisa al autónomo sin empleados de que tendrá que pagar. Toolkit básico de unos 210 €. Quien hizo un curso del SEPE que no le sirvió suele cerrar. Metodología: videoclases, tutor, tareas con feedback, acceso de por vida y actualizaciones.</p></div></div>
+
+    <div class="tramo"><span class="t">47:35–51:30</span><div><p><span class="who">Abraham</span> enseña el CRM. Filtrando por closer se ven sus leads. Hay unos 273–277 en Presentación de propuestas repartidos al azar: gente interesada a la que ya se envió la encomienda, para seguimiento y cierre. Elena pide que cambien su nombre en el CRM y se hace al momento. Hay leads del último mes o dos que se pueden rescatar.</p></div></div>
+
+    <div class="tramo"><span class="t">51:35–56:03</span><div><p>Seguimiento: hasta ahora solo dos o tres llamadas. En Seguimiento el sistema envía WhatsApp y correo al tercer día y a los 15 días sin contacto pasa a Imposible contactar. Cada intento se apunta en notas con fecha. Asignación automática por turno: mañana o tarde, cada hora.</p></div></div>
+
+    <div class="tramo"><span class="t">56:03–59:28</span><div><p>Agendar cita desde la ficha: recordatorios automáticos 24 h y 1 h antes. Calendario con todas las citas. Scoring de 0 a 3. Ejemplo de llamada a un lead que no recibió la encomienda.</p></div></div>
+
+    <div class="tramo"><span class="t">59:28–1:03:47</span><div><p>Mensajería con plantillas: se reenvía temario y encomienda en un clic. Historial de mensajes en la ficha. Cuándo pasar a Seguimiento: tras intentarlo un número razonable de veces; el sistema envía un enlace para agendar con la closer. <span class="who">Macarena</span> explica su rutina: llamar, apuntar la nota, repetir al día siguiente y luego pasar a Seguimiento.</p></div></div>
+
+    <div class="tramo"><span class="t">1:03:47–1:07:52</span><div><p>Colores: azul es reentrada; verde, que el lead ha escrito. Lista negra para leads que repiten sin intención, porque cada lead cuesta entre 7 y 12 €. Las llamadas agendadas pasan solas a su columna; hay 30.</p></div></div>
+
+    <div class="tramo"><span class="t">1:07:52–1:12:54</span><div><p><span class="who">David</span> pide definir el orden del día para el informe. Se acuerda: Por contactar de abajo arriba, citas del calendario, Seguimiento y Presentación de propuestas. Qué es cada etapa y cuándo descartar. En Presentación de propuestas hay correo automático a los 2 días y paso a largo plazo a los 40 días. Ejemplos de cierres que tardaron más de un mes.</p></div></div>
+
+    <div class="tramo"><span class="t">1:13:13–1:16:26</span><div><p>Cierre negociación: 27 leads con encomienda entregada o pendientes de pago; muchos son de máster, que casi siempre es de pago (unos 2.200 €). Tras limpiar quedarán unos 17. Venta cerrada es cuando está pagado.</p></div></div>
+
+    <div class="tramo"><span class="t">1:16:32–1:21:19</span><div><p>Partes del CRM que las closers no verán: contenidos y landings (Alberto), analítica, integraciones y automatizaciones. Abraham hace campañas masivas de correo en HTML bajo petición, por ejemplo Black Friday con un 5 %. Webinars: captan leads gratis (93 en uno). Mañana hay uno sobre SDD; el próximo mes, uno legal de gobernanza.</p></div></div>
+
+    <div class="tramo"><span class="t">1:21:35–1:25:01</span><div><p>Charo pregunta qué porcentaje de leads compra. No dan cifra: reconocen que no han hecho un cierre ni un seguimiento correctos por falta de tiempo. Un contacto puede traer uno o muchos alumnos. Ejemplo: una empresa cerró 17 de low-code (unos 800 €) porque el jefe de departamento lo quiso para todos.</p></div></div>
+
+    <div class="tramo"><span class="t">1:25:01–1:28:56</span><div><p>Software: AEDIA no da las herramientas; el alumno usa versiones gratuitas o paga licencias como n8n (de 4 a 20 € al mes). El curso de Microsoft tiene sentido para quien ya usa Microsoft en su empresa; existe una cuenta gratuita de un mes.</p></div></div>
+
+    <div class="tramo"><span class="t">1:28:56–1:33:21</span><div><p>Lectura del lead: en la ficha se ve qué curso miró. El generalista requiere preguntar sector y herramientas. Origen: formulario web (muy cualificado), Meta e Instagram, o asistentes de IA (cualificado). Para quien no sabe nada de IA, No-code 360; para quien quiere lo mínimo, el Toolkit. Abraham deja el resto para mañana y comenta que David está tomando notas para resumirlo.</p></div></div>
+
+    <div class="tramo"><span class="t">1:33:37–1:38:51</span><div><p>Al principio habrá mucha información; los primeros 15 días son normales. Elena pide el enlace del webinar (20 minutos de ponencia más parte técnica). Ambiente muy positivo: AEDIA confía en que el equipo arranque bien a final de año y en 2027. El lunes habrá 60–70 leads en Por contactar.</p></div></div>
+
+    <div class="tramo"><span class="t">1:38:51–1:43:17</span><div><p><span class="who">David</span> propone hacer un vocabulario de términos, como en otros proyectos. Abraham lo apoya porque los anglicismos de IA pesan mucho. Abraham cuenta su forma de vender: explicar, y decir que no a quien no quiere aprender. El título “sin aprender” es la formación de cumplimiento para empresas, tipo PRL de IA. Cierre: mañana se sigue con las formaciones.</p></div></div>
+  </div>
+</section>
+
+</div>
+<footer><div class="foot"><span>CLOSER SEARCH</span><span>www.closersearch.com · Closer Search Consulting SL</span></div></footer>
+</body>
+</html>
